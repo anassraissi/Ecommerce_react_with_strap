@@ -39,3 +39,13 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 "# Ecommerce_react_with_strap" 
+
+# requirement
+``````
+nmp install 
+npm install -g @sanity/cli
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
+sanity init,docs,manage
+cmd next.js
+npm run dev => for next
+sanity start => sanity studio 
