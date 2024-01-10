@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { Header,Footer,product } from "../../Components/index.jsx";
+import { Header,Footer,product, Product } from "../../Components/index.jsx";
 import { client } from '../../lib/client.js';
  const Home=({products,bannerData})=> {
   return (
@@ -12,7 +12,7 @@ import { client } from '../../lib/client.js';
       <p>Speakers pf many Variations</p>
     </div> 
     <div className='products-container'>
-      {products?.map((product)=> product.name )}
+      {products?.map((product)=> <Product key={product._id} product={product}/> )}
     </div>
       <Footer/>
     </>
