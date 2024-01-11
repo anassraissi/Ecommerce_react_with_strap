@@ -5,7 +5,7 @@ import { client } from '../../lib/client.js';
  const Home=({products,bannerData})=> {
   return (
     <>
-    {console.log(bannerData)}
+    {console.log(bannerData[0])}
     <Header banner={bannerData[0]} />
     <div className='products-heading'>
       <h2>best selling Products</h2>
@@ -14,7 +14,7 @@ import { client } from '../../lib/client.js';
     <div className='products-container'>
       {products?.map((product)=> <Product key={product._id} product={product}/> )}
     </div>
-      <Footer/>
+      <Footer FooterBanner={bannerData && bannerData[0]}/>
     </>
   )
 }
