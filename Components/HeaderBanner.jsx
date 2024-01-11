@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import { urlFor } from '../lib/client'
 
-const Header = ({banner}) => {
+const HeaderBanner = ({banner}) => {
   return (
     <div className="hero-banner-container">
       <div>
@@ -25,4 +25,4 @@ const Header = ({banner}) => {
     </div>  )
 }
 
-export default Header
+export default HeaderBanner

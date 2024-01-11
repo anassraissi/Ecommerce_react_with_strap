@@ -1,12 +1,12 @@
 
 import React from 'react'
-import { Header,Footer,product, Product } from "../../Components/index.jsx";
+import { HeaderBanner, Product, FooterBanner } from "../../Components/index.jsx";
 import { client } from '../../lib/client.js';
  const Home=({products,bannerData})=> {
   return (
     <>
     {console.log(bannerData[0])}
-    <Header banner={bannerData[0]} />
+    <HeaderBanner banner={bannerData[0]} />
     <div className='products-heading'>
       <h2>best selling Products</h2>
       <p>Speakers pf many Variations</p>
@@ -14,7 +14,7 @@ import { client } from '../../lib/client.js';
     <div className='products-container'>
       {products?.map((product)=> <Product key={product._id} product={product}/> )}
     </div>
-      <Footer FooterBanner={bannerData && bannerData[0]}/>
+      <FooterBanner footerBanner={bannerData && bannerData[0]}/>
     </>
   )
 }

@@ -41,7 +41,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 "# Ecommerce_react_with_strap" 
 
 # requirement
-``````
+```
 nmp install 
 npm install -g @sanity/cli
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
@@ -49,3 +49,47 @@ sanity init,docs,manage
 cmd next.js
 npm run dev => for next
 sanity start => sanity studio 
+npm i react-icons
+```
+# query is using the GROQ (Graph-Relational Object Queries) language, which is specific to Sanity => exp
+
+```
+
+export const getServerSideProps=async()=>{
+  const query='*[_type=="product"]';    
+
+  //In the query *[_type=="product"], you are querying for documents of type "product" in Sanity.  => name in file shema
+
+  // This query is using the GROQ (Graph-Relational Object Queries) language, which is specific to Sanity.
+
+
+  const products=await client.fetch(query)
+  const bannerQuery='*[_type=="banner"]';
+
+   //In the query *[_type=="product"], you are querying for documents of type "product" in Sanity.  => name in file shema
+
+  // This query is using the GROQ (Graph-Relational Object Queries) language, which is specific to Sanity
+  const bannerData=await client.fetch(bannerQuery)
+  return{
+      props:{
+        products,bannerData
+      }
+  }
+  }
+
+const productQuery=`*[_type=="product" && slug.current=='${slug}'][0]`;    
+
+```
+# dif between getStaticProps and getServerSideProps
+```
+choose getStaticProps for static generation when the data can be fetched at build time,
+ 
+choose getServerSideProps for server-side rendering when the data needs to be fetched on each request. 
+
+ ```
+
+
+
+
+
+

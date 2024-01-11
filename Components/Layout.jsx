@@ -1,8 +1,24 @@
+import Head from 'next/head'
 import React from 'react'
+import { Footer, Navbar } from '.'
 
-const Layout = () => {
+const Layout = ({children}) => {
   return (
-    <div>Layout</div>
+    <div className='layout'>
+        <Head>
+          <title>Anass's store</title>
+        </Head>
+        <header>
+        <Navbar/>
+        </header>
+        <main className='main-container'>
+            {children}
+        </main>
+        <footer>
+          <Footer/>
+        </footer>
+
+    </div>
   )
 }
 
