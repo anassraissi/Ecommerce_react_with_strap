@@ -88,6 +88,24 @@ choose getServerSideProps for server-side rendering when the data needs to be fe
 
  ```
 
+ # error typing
+  ```
+  =>{} must type a return instead of =>() 
+
+-----this is my error it retuen nothing
+
+  {products.map((item)=>{
+                <Product key={item._id} product={item}/>
+  })}
+
+-----i fix it by using () insted {}
+
+  {products.map((item)=>{
+                <Product key={item._id} product={item}/>
+  })}
+
+```
+
 
 
 
