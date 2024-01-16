@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import React from 'react'
 import { urlFor } from '../lib/client'
-import product from '../sanity_ecommerce/schemas/product';
-
+import product from '../sanitty/schemas/product'
+ 
 const Product = ({product:{image,name,slug,price}}) => { // declari dack li bghina bla man diro product.name 
   return (
     <div>
