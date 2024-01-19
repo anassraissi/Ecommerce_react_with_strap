@@ -8,7 +8,6 @@ const ProductDetails = ({product,products}) => {
   const{image,price,name,details}=product;
   const [index,setIndex]=useState(0);
   const {incQty,DecQty,qty,onAdd}=useStateContext();
-  // console.log(image);
   return (
     <div>
       <div className="product-detail-container">
