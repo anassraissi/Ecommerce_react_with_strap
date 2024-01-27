@@ -6,6 +6,7 @@ import { useStateContext } from '../../../Context/StateContext';
 
 const ProductDetails = ({product,products}) => {
   const{image,price,name,details}=product;
+  let quantity=1;
   const [index,setIndex]=useState(0);
   const {incQty,DecQty,qty,onAdd}=useStateContext();
   return (
