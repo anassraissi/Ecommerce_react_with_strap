@@ -5,10 +5,32 @@ import { AiOutlineMinus,AiOutlinePlus,AiOutlineLeft,AiOutlineShopping } from 're
 import { TiDeleteOutline } from "react-icons/ti";
 import { useStateContext } from '../Context/StateContext';
 import { urlFor } from '../lib/client';
+import getStripe from '../lib/getStripe';
+import { logging } from '../next.config';
+
 const Cart = () => {
   const cartRef=useRef();
   const {totalPrice,totalQuantity,setshowCart,cartItems,toggleCartItemQuantity,qty,onRemove}=useStateContext();
-  // console.log(cartItems);
+
+    const handelCheckout= async()=>{
+      const stripe = await getStripe();
+
+    const response = await fetch('/api/stripe', { 
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({cartItems}),  // sent object call cartItems
+    });
+
+    if(response.statusCode === 500) return;
+    
+    const data = await response.json();
+
+    toast.loading('Redirecting...');
+
+    stripe.redirectToCheckout({ sessionId: data.id });  // redirect to stripe fot checkout site and managing payment
+    }
   return (
     <div className='cart-wrapper' ref={cartRef}>
           <div className='cart-container'>
@@ -66,7 +88,7 @@ const Cart = () => {
               <h3>${totalPrice}</h3>
             </div>
             <div className="btn-container">
-              <button type="button" className="btn">
+              <button type="button" className="btn" onClick={handelCheckout}>
                 Pay with Stripe
               </button>
             </div>
